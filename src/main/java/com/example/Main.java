@@ -57,6 +57,7 @@ public class Main {
 
     //print result
     public void printResult(){
+        System.out.println("");
         System.out.println("Blanks:"+blankCounter.get_num());
         System.out.println("Comments:"+commentCounter.get_num());
         System.out.println("Codes:"+codeCounter.get_num());
