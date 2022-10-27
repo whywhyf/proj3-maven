@@ -5,6 +5,10 @@ import java.io.*;
 public class Main {
 
     private File dir; 
+    private BlankCounter blankCounter = new BlankCounter();
+    private CodeCounter codeCounter = new CodeCounter();
+    private CommentCounter commentCounter = new CommentCounter();
+
 
     public static void main( String[] args )
     {
@@ -14,7 +18,7 @@ public class Main {
         Main main = new Main();
         main.setPath();
         main.playCount();
-        
+        main.printResult();
     }
 
 
@@ -26,11 +30,6 @@ public class Main {
 
     //execute counting
     public void playCount(){
-
-        BlankCounter blankCounter = new BlankCounter();
-        CodeCounter codeCounter = new CodeCounter();
-        CommentCounter commentCounter = new CommentCounter();
-        
         try{
             System.out.println(dir);
             if (dir.isDirectory()) {
@@ -41,18 +40,26 @@ public class Main {
                     BufferedReader br = new BufferedReader(new FileReader(dirset));
                     String line;
                     while ((line=br.readLine())!=null) {//judge blank,code,comment
-                        if(blankCounter.isBlank(line)) blankCounter.add_num();
-                        else if(codeCounter.isCode(line)) codeCounter.add_num();
-                        else if(commentCounter.isComment(line)) commentCounter.add_num();
+                        if(blankCounter.isBlank(line)) blankCounter.add_num(); 
+                        else{
+                            if(commentCounter.isComment(line)) commentCounter.add_num();
+                            if(codeCounter.isCode(line) && !commentCounter.isBlock) codeCounter.add_num();
+                        }    
                     }
                     br.close();
                 }
             }
         }catch(IOException e){
             e.printStackTrace();
-        }
-
-        //print result
-        System.out.println(blankCounter.get_num());
+        }     
     }   
+
+
+    //print result
+    public void printResult(){
+        System.out.println("Blanks:"+blankCounter.get_num());
+        System.out.println("Comments:"+commentCounter.get_num());
+        System.out.println("Codes:"+codeCounter.get_num());
+
+    }
 }

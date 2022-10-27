@@ -15,7 +15,7 @@ public class Counter {
     }
 
     //get number
-    public int get_num(){
+    protected int get_num(){
         return number;
     }
 }
