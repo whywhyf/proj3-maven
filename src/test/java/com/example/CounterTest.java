@@ -32,6 +32,9 @@ public class CounterTest
     //test codeCounter
     @Test
     public void codeCounterTest(){
+        assertEquals(true, codeCounter.isCode("code //"));
+        assertEquals(true, codeCounter.isCode("code /*"));
+
         assertEquals(false, codeCounter.isCode(" //"));
         assertEquals(false, codeCounter.isCode("//"));
         assertEquals(false, codeCounter.isCode("//   comment"));
