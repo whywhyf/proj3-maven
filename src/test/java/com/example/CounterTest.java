@@ -3,6 +3,8 @@ package com.example;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.io.File;
+import java.util.ArrayList;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -18,7 +20,11 @@ public class CounterTest
 
     @Before
     public void init_Counter(){
-        
+        ArrayList<String> pathlist = new ArrayList<>();
+        pathlist.add("testsample");
+        blankCounter.set_path(pathlist);
+        codeCounter.set_path(pathlist);
+        commentCounter.set_path(pathlist);   
     }
 
 
@@ -28,6 +34,9 @@ public class CounterTest
         assertEquals(true, blankCounter.isBlank(""));
         assertEquals(true, blankCounter.isBlank(" "));
         assertEquals(true, blankCounter.isBlank("                  "));
+
+        blankCounter.playCount();
+        assertEquals(2, blankCounter.get_num());
     }
 
     //test codeCounter
@@ -35,9 +44,7 @@ public class CounterTest
     public void codeCounterTest(){
         assertEquals(true, codeCounter.isCode("code //"));
         assertEquals(true, codeCounter.isCode("code /*"));
-        //assertEquals(true, codeCounter.isCode("/*  comment  */code"));
-        //assertEquals(true, codeCounter.isCode("/*  comment  */ /* */ code"));
-        //assertEquals(true, codeCounter.isCode(" comment  */code"));
+        
 
         assertEquals(false, codeCounter.isCode(""));
         assertEquals(false, codeCounter.isCode(" "));
@@ -48,8 +55,9 @@ public class CounterTest
         assertEquals(false, codeCounter.isCode(" /*"));
         assertEquals(false, codeCounter.isCode("/*    comment"));
         assertEquals(false, codeCounter.isCode("/*    */"));
-        //assertEquals(false, codeCounter.isCode(" comment  */"));
         
+        codeCounter.playCount();
+        assertEquals(3, codeCounter.get_num());
     }
 
 
@@ -59,12 +67,15 @@ public class CounterTest
         assertEquals(true, commentCounter.isComment("//"));
         assertEquals(true, commentCounter.isComment(" //"));
         assertEquals(true, commentCounter.isComment("//  comment"));
-        assertEquals(true, commentCounter.isComment("code //"));
+        
         assertEquals(true, commentCounter.isComment("/*"));
         assertEquals(true, commentCounter.isComment(" /*"));
         assertEquals(true, commentCounter.isComment("/*   comment"));
         assertEquals(true, commentCounter.isComment("/*    */"));
-        assertEquals(true, commentCounter.isComment("code /*    */"));
+        //assertEquals(true, commentCounter.isComment("code /*    */"));
+
+        commentCounter.playCount();
+        assertEquals(3, commentCounter.get_num());
     }
     
 
@@ -74,4 +85,3 @@ public class CounterTest
         assertTrue( true );
     }
 }
- 

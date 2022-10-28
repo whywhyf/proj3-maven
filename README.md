@@ -1,12 +1,24 @@
 ﻿# proj3-maven
 
+## 10.28 19:52 解耦branch
+
+counter现在可以单独执行
+
+testsample下是一个只用来被测试的java文件，实际不参与程序运行
+
+tester中以testsample文件为被计数对象进行测试
+
+remember to read both src and test file! （done）
+
+## main
+
 counter for blanks (done)
 
 counter for codes 
 
     " xxx  */ code"
 
-    null is also a balnkline
+    文件末尾的null is also a balnkline
 
 counter for comment 
 
@@ -47,5 +59,5 @@ comment:
 
 
 ## use vs code counter to check the result
+vs code counter并不能处理所有情况，试一下cloc
 
-## 也许要解耦重写，让每个counter可以单独处理文件，方便写测试  this is branch
