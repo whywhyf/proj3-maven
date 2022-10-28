@@ -3,6 +3,7 @@ package com.example;
 public class Counter {
 
     protected int number = 0;//number of count
+    protected boolean isBlock = false;
 
     //set number
     protected void set_num(int input){
