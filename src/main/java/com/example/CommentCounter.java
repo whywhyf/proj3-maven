@@ -15,6 +15,7 @@ public class CommentCounter extends Counter{
             if(line.endsWith("*/")) isBlock = false;
             return true;
         }
+        
         return false;
     }
 }

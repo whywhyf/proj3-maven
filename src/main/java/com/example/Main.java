@@ -39,14 +39,17 @@ public class Main {
                     System.out.println(dirset);
                     BufferedReader br = new BufferedReader(new FileReader(dirset));
                     String line;
-                    while ((line=br.readLine())!=null) {//judge blank,code,comment
+                    while (true) {//judge blank,code,comment
+                        line = br.readLine();
                         if(blankCounter.isBlank(line)) blankCounter.add_num(); 
                         else{
-                            if(commentCounter.isComment(line)) commentCounter.add_num();
                             if(codeCounter.isCode(line) && !commentCounter.isBlock) codeCounter.add_num();
-                        }    
+                            if(commentCounter.isComment(line)) commentCounter.add_num();
+                        }
+                        if(line==null) break;    
                     }
                     br.close();
+                    System.out.println("Codes:"+codeCounter.get_num());
                 }
             }
         }catch(IOException e){

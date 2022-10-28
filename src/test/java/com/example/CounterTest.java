@@ -3,6 +3,7 @@ package com.example;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -34,7 +35,12 @@ public class CounterTest
     public void codeCounterTest(){
         assertEquals(true, codeCounter.isCode("code //"));
         assertEquals(true, codeCounter.isCode("code /*"));
+        //assertEquals(true, codeCounter.isCode("/*  comment  */code"));
+        //assertEquals(true, codeCounter.isCode("/*  comment  */ /* */ code"));
+        //assertEquals(true, codeCounter.isCode(" comment  */code"));
 
+        assertEquals(false, codeCounter.isCode(""));
+        assertEquals(false, codeCounter.isCode(" "));
         assertEquals(false, codeCounter.isCode(" //"));
         assertEquals(false, codeCounter.isCode("//"));
         assertEquals(false, codeCounter.isCode("//   comment"));
@@ -42,6 +48,8 @@ public class CounterTest
         assertEquals(false, codeCounter.isCode(" /*"));
         assertEquals(false, codeCounter.isCode("/*    comment"));
         assertEquals(false, codeCounter.isCode("/*    */"));
+        //assertEquals(false, codeCounter.isCode(" comment  */"));
+        
     }
 
 
