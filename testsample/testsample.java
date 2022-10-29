@@ -1,9 +1,15 @@
 package com.example;
 /*
- * this .java is only for test
- */
-public class testsample {/* 
+ //* this .java is only for test
+ */import java.*;
+public class testsample {/* dfghdfh
 
-    */int x;
-    int y;//test
+    //what
+
+    fgdffdh*/int x;/*dfsds*//* 
+    int x;
+    dsfsdf*/int y;//test
+    /* */int z;
+    
+    //eee
 }

@@ -36,7 +36,7 @@ public class CounterTest
         assertEquals(true, blankCounter.isBlank("                  "));
 
         blankCounter.playCount();
-        assertEquals(2, blankCounter.get_num());
+        assertEquals(3, blankCounter.get_num());
     }
 
     //test codeCounter
@@ -75,7 +75,7 @@ public class CounterTest
         //assertEquals(true, commentCounter.isComment("code /*    */"));
 
         commentCounter.playCount();
-        assertEquals(3, commentCounter.get_num());
+        assertEquals(9, commentCounter.get_num());
     }
     
 

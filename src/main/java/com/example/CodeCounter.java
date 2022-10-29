@@ -6,16 +6,22 @@ public class CodeCounter extends Counter{
 
     public boolean isCode(String line){
         if(line.isBlank() || line.isEmpty()) return false;
-        if(isBlock){
-            if(line.endsWith("*/")) isBlock = false;
+        if(isBlock || line.matches("^\s*/\\*.*")){
+            if(line.matches("^\s*/\\*.*")) isBlock = true;
+            if(line.contains("*/")) isBlock = false;
+            line = line.replaceFirst(".*\\*/", "");
+            line = line.replaceAll("\\\\\\\\", "");
+            line = line.replaceAll("\\\\\"", "");
+            line = line.replaceAll("\"[^\"]*\"", "");
+            line = line.replaceAll("/\\*.*\\*/", "");
+            if(line.contains("/*")) isBlock = true;
             return false;
-        } 
-        if(line.matches("^\s*/\\*.*")){
-            isBlock = true;
-            if(line.endsWith("*/")) isBlock = false;
-            return false;
-        }
-        //if(line.matches(".*\\*/\s*$")) return false;
+        }                
+        line = line.replaceAll("\\\\\\\\", "");
+        line = line.replaceAll("\\\\\"", "");
+        line = line.replaceAll("\"[^\"]*\"", "");
+        line = line.replaceAll("/\\*.*\\*/", "");
+        if(line.contains("/*")) isBlock = true;
         if(!line.matches("^\s*//.*") && !line.matches("^\s*/\\*.*") ) return true; 
         return false;
     }
