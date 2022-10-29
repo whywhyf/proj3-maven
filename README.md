@@ -18,7 +18,7 @@ counter for codes
 
     " xxx  */ code"
 
-    文件末尾的null is also a balnkline
+    文件末尾的null is not  a balnkline
 
 counter for comment 
 
@@ -60,4 +60,12 @@ comment:
 
 ## use vs code counter to check the result
 vs code counter并不能处理所有情况，试一下cloc
+
+## cloc显示剩下需要判断的只有
+
+    /*
+
+    */code
+
+的第二行 认定为注释
 

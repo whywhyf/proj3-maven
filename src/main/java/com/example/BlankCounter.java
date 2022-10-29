@@ -5,7 +5,7 @@ import java.io.*;
 public class BlankCounter extends Counter {
 
     public boolean isBlank(String line){
-        if(line==null || line.matches("\s*")) return true;
+        if(line.matches("\s*")) return true;
         return false;
     }
 
@@ -23,10 +23,8 @@ public class BlankCounter extends Counter {
                         System.out.println(dirset);
                         BufferedReader br = new BufferedReader(new FileReader(dirset));
                         String line;
-                        while (true) {//judge blank
-                            line = br.readLine();
-                           if(isBlank(line)) number++;
-                           if(line==null) break;    
+                        while ((line = br.readLine())!=null) {//judge blank   
+                            if(isBlank(line)) number++;
                         }
                         br.close();
                         System.out.println("Codes:"+number);

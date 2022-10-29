@@ -5,6 +5,7 @@ import java.io.*;
 public class CommentCounter extends Counter{
 
     public boolean isComment(String line){
+        if(line.isBlank() || line.isEmpty()) return false;
         if(isBlock){
             if(line.endsWith("*/")) isBlock = false;
             return true;

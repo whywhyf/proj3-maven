@@ -1,0 +1,36 @@
+Date : 2022-10-29 19:32:31
+Directory : c:\Users\HP\Desktop\za\Advanced programming\proj3\testsample
+Total : 6 files,  -167 codes, -7 comments, -44 blanks, all -218 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| Java     |          6 |       -167 |         -7 |        -44 |       -218 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++-------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                            | files      | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                               |          6 |       -167 |         -7 |        -44 |       -218 |
+| ..                                                                                              |          5 |       -170 |        -10 |        -46 |       -226 |
+| ..\src                                                                                          |          5 |       -170 |        -10 |        -46 |       -226 |
+| ..\src\main                                                                                     |          5 |       -170 |        -10 |        -46 |       -226 |
+| ..\src\main\java                                                                                |          5 |       -170 |        -10 |        -46 |       -226 |
+| ..\src\main\java\com                                                                            |          5 |       -170 |        -10 |        -46 |       -226 |
+| ..\src\main\java\com\example                                                                    |          5 |       -170 |        -10 |        -46 |       -226 |
++-------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                        | language | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| c:\Users\HP\Desktop\za\Advanced programming\proj3\src\main\java\com\example\BlankCounter.java   | Java     |        -34 |         -1 |         -6 |        -41 |
+| c:\Users\HP\Desktop\za\Advanced programming\proj3\src\main\java\com\example\CodeCounter.java    | Java     |        -42 |         -2 |         -6 |        -50 |
+| c:\Users\HP\Desktop\za\Advanced programming\proj3\src\main\java\com\example\CommentCounter.java | Java     |        -41 |         -1 |         -8 |        -50 |
+| c:\Users\HP\Desktop\za\Advanced programming\proj3\src\main\java\com\example\Counter.java        | Java     |        -21 |         -4 |        -12 |        -37 |
+| c:\Users\HP\Desktop\za\Advanced programming\proj3\src\main\java\com\example\Main.java           | Java     |        -32 |         -2 |        -14 |        -48 |
+| c:\Users\HP\Desktop\za\Advanced programming\proj3\testsample\testsample.java                    | Java     |          3 |          3 |          2 |          8 |
+| Total                                                                                           |          |       -167 |         -7 |        -44 |       -218 |
++-------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
