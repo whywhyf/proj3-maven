@@ -3,7 +3,6 @@ package com.example;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import java.io.File;
 import java.util.ArrayList;
 
 import org.junit.Before;
@@ -31,49 +30,52 @@ public class CounterTest
     //test blankCounter
     @Test
     public void blankCounterTest(){
-        assertEquals(true, blankCounter.isBlank(""));
-        assertEquals(true, blankCounter.isBlank(" "));
-        assertEquals(true, blankCounter.isBlank("                  "));
+        assertEquals(true, blankCounter.shouldCount(""));
+        assertEquals(true, blankCounter.shouldCount(" "));
+        assertEquals(true, blankCounter.shouldCount("                  "));
 
         blankCounter.playCount();
-        assertEquals(3, blankCounter.get_num());
+        assertEquals(2, blankCounter.get_num());
     }
 
     //test codeCounter
     @Test
     public void codeCounterTest(){
-        assertEquals(true, codeCounter.isCode("code //"));
-        assertEquals(true, codeCounter.isCode("code /*"));
+        assertEquals(true, codeCounter.shouldCount("code //"));
+        assertEquals(true, codeCounter.shouldCount("code /*"));
         
 
-        assertEquals(false, codeCounter.isCode(""));
-        assertEquals(false, codeCounter.isCode(" "));
-        assertEquals(false, codeCounter.isCode(" //"));
-        assertEquals(false, codeCounter.isCode("//"));
-        assertEquals(false, codeCounter.isCode("//   comment"));
-        assertEquals(false, codeCounter.isCode("/*"));
-        assertEquals(false, codeCounter.isCode(" /*"));
-        assertEquals(false, codeCounter.isCode("/*    comment"));
-        assertEquals(false, codeCounter.isCode("/*    */"));
+        assertEquals(false, codeCounter.shouldCount(""));
+        assertEquals(false, codeCounter.shouldCount(" "));
+        assertEquals(false, codeCounter.shouldCount(" //"));
+        assertEquals(false, codeCounter.shouldCount("//"));
+        assertEquals(false, codeCounter.shouldCount("//   comment"));
+        assertEquals(false, codeCounter.shouldCount("/*"));
+        assertEquals(false, codeCounter.shouldCount(" /*"));
+        assertEquals(false, codeCounter.shouldCount("/*    comment"));
+        assertEquals(false, codeCounter.shouldCount("/*    */"));
         
         codeCounter.playCount();
-        assertEquals(3, codeCounter.get_num());
+        assertEquals(4, codeCounter.get_num());
     }
 
 
     //test commentCounter
     @Test
     public void commentCounterTest(){
-        assertEquals(true, commentCounter.isComment("//"));
-        assertEquals(true, commentCounter.isComment(" //"));
-        assertEquals(true, commentCounter.isComment("//  comment"));
         
-        assertEquals(true, commentCounter.isComment("/*"));
-        assertEquals(true, commentCounter.isComment(" /*"));
-        assertEquals(true, commentCounter.isComment("/*   comment"));
-        assertEquals(true, commentCounter.isComment("/*    */"));
-        //assertEquals(true, commentCounter.isComment("code /*    */"));
-
+        assertEquals(true, commentCounter.shouldCount("//"));
+        assertEquals(true, commentCounter.shouldCount(" //"));
+        assertEquals(true, commentCounter.shouldCount("//  comment"));
+        assertEquals(true, commentCounter.shouldCount("/*"));
+        assertEquals(true, commentCounter.shouldCount(" /*"));
+        assertEquals(true, commentCounter.shouldCount("/*   comment"));
+        assertEquals(true, commentCounter.shouldCount("/*    */"));
+        
+        assertEquals(false, commentCounter.shouldCount("code //"));
+        assertEquals(false, commentCounter.shouldCount("code /*    */"));
+        assertEquals(false, commentCounter.shouldCount("code /*    "));commentCounter.isBlock = false;
+        
         commentCounter.playCount();
         assertEquals(9, commentCounter.get_num());
     }

@@ -10,6 +10,6 @@ public class testsample {/* dfghdfh
     int x;
     dsfsdf*/int y;//test
     /* */int z;
-    
+    int q;///
     //eee
 }
